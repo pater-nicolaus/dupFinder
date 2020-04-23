@@ -2,8 +2,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }
-
-    class data_of_file    {
+}
+class FileInfo   {
         public byte[] hash;
         public Path path;
         public long length;
@@ -17,4 +17,4 @@ public class Main {
                     '}';
         }
     }
-}
+
