@@ -1,10 +1,19 @@
 public class FileInfo  {
-    public byte[] hash;
-    public Path path;
-    public long length;
+    private byte[] hash;
+
+    {
+        public byte[] getHash () {
+        return hash;
+    }
+        public void setHash ( byte[] hash){
+        this.hash = hash;
+    }
+    }
+    private Path path;
+    private long length;
 
     @Override
-    public String toString() {
+    private String toString() {
         return "Media{" +
                 "hash=" + Arrays.toString(hash) +
                 ", path='" + path + '\'' +
