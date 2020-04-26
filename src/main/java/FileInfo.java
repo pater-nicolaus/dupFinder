@@ -14,6 +14,21 @@ public class FileInfo {
         this.path = path;
     }
 
+    public byte[] getHash() {
+        return hash;
+    }
+
+    public void setHash(byte[] hash) {
+        this.hash = hash;
+    }
+    public long getLength() {
+        return length;
+    }
+
+    public void setLength(long length) {
+        this.length = length;
+    }
+
     @Override
     public String toString() {
         return "Media{" +
