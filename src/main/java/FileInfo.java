@@ -1,19 +1,21 @@
-public class FileInfo  {
-    private byte[] hash;
+import java.nio.file.Path;
+import java.util.Arrays;
 
-    {
-        public byte[] getHash () {
-        return hash;
-    }
-        public void setHash ( byte[] hash){
-        this.hash = hash;
-    }
-    }
+public class FileInfo {
     private Path path;
+    private byte[] hash;
     private long length;
 
+    public Path getPath() {
+        return path;
+    }
+
+    public void setPath(Path path) {
+        this.path = path;
+    }
+
     @Override
-    private String toString() {
+    public String toString() {
         return "Media{" +
                 "hash=" + Arrays.toString(hash) +
                 ", path='" + path + '\'' +
