@@ -1,6 +1,5 @@
 public class Hash {
-    byte[] myProc(File file) throws IOException, NoSuchAlgorithmException {
-    //String name = new String("");
+    private byte[] Hash(File file) throws IOException, NoSuchAlgorithmException {
     byte[] buffer = new byte[1000000000];
     InputStream is = new FileInputStream(file);
     int len = is.read(buffer);
@@ -8,5 +7,5 @@ public class Hash {
     digest.update(buffer, 0, len);
     byte[] hash = digest.digest();
     return hash;
-}
+    }
 }

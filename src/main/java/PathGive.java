@@ -1,5 +1,5 @@
 public class PathGive {
-    public  void walkDirectory(String path) {
+    private  void walkDirectory(String path) {
         File filePath = new File(path);
         Stream.of(filePath.listFiles()).forEach(file -> {
             if (file.isDirectory()) {
