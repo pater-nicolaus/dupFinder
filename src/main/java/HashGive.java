@@ -1,5 +1,5 @@
 public class HashGive {
-    private byte[] Hash(File file) throws IOException, NoSuchAlgorithmException {
+    public byte[] Hash(File file) throws IOException, NoSuchAlgorithmException {
     byte[] buffer = new byte[1000000000];
     InputStream is = new FileInputStream(file);
     int len = is.read(buffer);
