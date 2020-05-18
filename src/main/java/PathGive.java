@@ -1,15 +1,22 @@
 public class PathGive {
-    private  void walkDirectory(String path) {
-        File filePath = new File(path);
-        Stream.of(filePath.listFiles()).forEach(file -> {
-            if (file.isDirectory()) {
-                walkDirectory(file.toString(), of);
-            } else {
-                if (file.length() > 0 && file.length() < 1000000000) {
-                    return filePath;
+    private void scanDirectory(File rootDirectory) {
+        System.out.println(rootDirectory);
+
+        File[] filesInDirectory = rootDirectory.listFiles();
+        //System.out.prntln(filesInDirectory.toString());
+
+        try {
+            for (File file : filesInDirectory) {
+                //System.out.println(file);
+
+                if (file.isDirectory()) {
+                    scanDirectory(file);
+                } else {
+                    list.add(file);
                 }
-                ;
+            } catch(Exception e){
+                e.printStackTrace();
             }
-        });
+        }
     }
 }
