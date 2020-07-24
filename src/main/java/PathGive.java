@@ -1,12 +1,15 @@
+import java.io.File;
+import java.util.stream.Stream;
+
 public class PathGive {
-    private  void walkDirectory(String path) {
+    private File walkDirectory(String path) {
         File filePath = new File(path);
         Stream.of(filePath.listFiles()).forEach(file -> {
             if (file.isDirectory()) {
-                walkDirectory(file.toString(), of);
+                walkDirectory(file.toString());
             } else {
                 if (file.length() > 0 && file.length() < 1000000000) {
-                    return filePath;
+                    return filePath = file.getAbsolutePath();
                 }
                 ;
             }
