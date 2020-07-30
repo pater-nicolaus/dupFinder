@@ -1,16 +1,16 @@
+import java.io.File;
 import java.util.*;
-public class Iterator {
-    public static void main(String args[]) {
-        Iterator itr = list.iterator();
 
-        while(itr.hasNext()) {
+class Ite{
+    public void Main(String[] args){
+        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<Object> ListOfFile = new ArrayList<>();
+        Iterator iterator =  list.iterator();
 
-            Object element = itr.next();
-
-            System.out.print(element + " ");
-
+        while (iterator.hasNext()){
+            Object f = iterator.next();
+            ListOfFile.add(f);
         }
-        System.out.println();
+
     }
 }
-
