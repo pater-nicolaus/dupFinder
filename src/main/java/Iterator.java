@@ -2,8 +2,14 @@ import java.io.File;
 import java.util.*;
 
 class Ite{
-    public void Main(String[] args){
-        ArrayList<String> list = new ArrayList<String>();
+    public static void main(String[] args){
+        String path = "D:\\Code\\Data";
+        File dir = new File(path);
+        List<File> list = new ArrayList<>();
+        for ( File file : dir.listFiles() ){
+            if ( file.isFile() )
+                list.add(file);
+        }
         ArrayList<Object> ListOfFile = new ArrayList<>();
         Iterator iterator =  list.iterator();
 
@@ -12,5 +18,9 @@ class Ite{
             ListOfFile.add(f);
         }
 
+        for (Object f: ListOfFile)
+        {
+            System.out.println(f);
+        }
     }
 }
