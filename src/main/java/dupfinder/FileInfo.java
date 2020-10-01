@@ -1,3 +1,5 @@
+package dupfinder;
+
 import java.nio.file.Path;
 import java.util.Arrays;
 
@@ -21,6 +23,7 @@ public class FileInfo {
     public void setHash(byte[] hash) {
         this.hash = hash;
     }
+
     public long getLength() {
         return length;
     }
