@@ -1,5 +1,4 @@
 import java.io.File;
-import java.nio.file.Path;
 import java.util.stream.Stream;
 
 public class PathGive {
@@ -11,10 +10,11 @@ public class PathGive {
                 walkDirectory(file.toString());
             } else {
                 if (file.length() > 0 && file.length() < 1000000000) {
-                    String absolutePath =  file.getAbsolutePath();
-                    return absolutePath;
+                    String absolutePath = new String() ;
+                    absolutePath =  file.getAbsolutePath().toString();
+                    //return absolutePath;
                 }
-                ;
+
             }
         });
         return null;

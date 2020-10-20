@@ -12,6 +12,8 @@ repositories {
 }
 
 dependencies {
+    implementation 'junit:junit:4.12'
+    implementation 'junit:junit:4.12'
     compile group: 'org.springframework', name: 'spring-context', version: '5.2.8.RELEASE'
     compile group: 'org.mockito', name: 'mockito-core', version: '2.28.2'
     testCompile group: 'org.testng', name: 'testng', version: '6.9.10'
