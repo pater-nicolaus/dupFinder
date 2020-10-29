@@ -16,23 +16,16 @@ abstract public class FileProcessor {
     }
 
     public void processFile() throws IOException {
-        File file = path.toFile();
-        FileInputStream inputStream = new FileInputStream(new BufferedReader((Reader) path).readLine());
-        int bufSize = buffer.length;
+        int bytesRead;
 
-        while (inputStream.available() > 0) {
-            if (inputStream.available() < bufSize) bufSize = inputStream.available();
-            buffer = inputStream.readNBytes(bufSize);
-            processFilePart(buffer, buffer.length);
+        try (FileInputStream f = new FileInputStream(path.toString())) {
+            do {
+                bytesRead = f.read(buffer, 0, buffer.length);
+                if (bytesRead != -1)
+                    processFilePart(buffer, bytesRead);
+            } while (bytesRead != -1);
+        }
     }
-
-//        for(int i=0;i<file.length();i+=buffer.length){
-//            for (int j = 0+i;j< buffer.length;j++){
-//                inputStream.read(buffer,j,j+1);
-//            }
-//        }
-    }
-
 
 
     abstract void processFilePart(byte[] data, int size);
