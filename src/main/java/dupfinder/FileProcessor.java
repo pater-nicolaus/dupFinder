@@ -1,10 +1,8 @@
 package dupfinder;
 
-import sun.nio.ch.DirectBuffer;
-
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.nio.MappedByteBuffer;
+import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.file.Path;
 
@@ -21,17 +19,14 @@ abstract public class FileProcessor {
     public void processFile() throws IOException {
         try (RandomAccessFile file = new RandomAccessFile(path.toFile(), "r")) {
             FileChannel fileChannel = file.getChannel();
-            //KLUDGE: here we can read only files less than 2GB. If we need to read bigger files we should move the mapping window.
-            MappedByteBuffer mappedByteBuffer = fileChannel.map(FileChannel.MapMode.READ_ONLY, 0, fileChannel.size());
-            try {
-                while (mappedByteBuffer.hasRemaining()) {
-                    int bytesToRead = Math.min(buffer.length, mappedByteBuffer.remaining());
-                    mappedByteBuffer.get(buffer, 0, bytesToRead);
-                    processFilePart(buffer, bytesToRead);
-                }
-            } finally {
-                ((DirectBuffer) mappedByteBuffer).cleaner().clean();
-            }
+            ByteBuffer byteBuffer = ByteBuffer.wrap(buffer);
+            do {
+                int bytesRead = fileChannel.read(byteBuffer);
+                if (bytesRead == 0 || bytesRead == -1)
+                    break;
+                processFilePart(buffer, bytesRead);
+                byteBuffer.rewind();
+            } while (true);
         }
     }
 

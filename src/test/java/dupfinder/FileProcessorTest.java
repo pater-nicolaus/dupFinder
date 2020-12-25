@@ -71,7 +71,7 @@ public class FileProcessorTest {
                 fileProcessor.processFile();
                 byte[] part1 = Arrays.copyOfRange(testFile.getData(), 0, 50);
                 byte[] part2 = Arrays.copyOfRange(testFile.getData(), 50, 100);
-                assertEquals(2, fileProcessor.parts.size());
+                assertEquals(fileProcessor.parts.size(), 2);
                 assertArrayEquals(part1, fileProcessor.parts.get(0).getLeft(), fileProcessor.parts.get(0).getRight());
                 assertArrayEquals(part2, fileProcessor.parts.get(1).getLeft(), fileProcessor.parts.get(1).getRight());
             } finally {
