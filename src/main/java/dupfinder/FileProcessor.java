@@ -30,5 +30,5 @@ abstract public class FileProcessor {
         }
     }
 
-    abstract void processFilePart(byte[] data, int size);
+    protected abstract void processFilePart(byte[] data, int size);
 }
